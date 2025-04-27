@@ -1,6 +1,8 @@
-service: express-lambda-ts
-
-# frameworkVersion: '>=3.0.0 <4.0.0'
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: abhay21
+# "app" enables Serverless Framework Dashboard features and sharing them with other Services.
+app: express-lambda-ts
+service: all-functions-in-one
 
 provider:
   name: aws
