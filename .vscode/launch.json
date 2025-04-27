@@ -1,0 +1,31 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Serverless Offline",
+      "program": "${workspaceFolder}/node_modules/.bin/serverless",
+      "args": ["offline", "start"],
+      "runtimeArgs": ["--require", "ts-node/register"],
+      "env": {
+        "IS_OFFLINE": "true"
+      },
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Debug with nodemon",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "nodemon",
+      "runtimeArgs": [
+        "--inspect", // Enable debugging
+        "--inspect-brk", // Start with debugger paused
+        "src/handler.ts" // Path to your Express entry file
+      ],
+      "skipFiles": ["<node_internals>/**"],
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"]
+    }
+  ]
+}
